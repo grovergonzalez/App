@@ -18,16 +18,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val breakWorld = Button(this).apply {
-            text = "Break the world"
-            setOnClickListener {
-                Sentry.captureException(RuntimeException("This app uses Sentry! :)"))
-            }
-        }
-
-        addContentView(breakWorld, ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        )
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
